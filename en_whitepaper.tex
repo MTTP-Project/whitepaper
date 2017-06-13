@@ -119,9 +119,9 @@ Multilateral token exchange protocol (MTTP) is an open protocol for decentralize
 
 Blockchain\cite{staff2016blockchains}\cite{swan2015blockchain} technology was created to facilitate the cryptocurrency Bitcoin\cite{nakamoto2008Bitcoin}. It is originally a decentralized system to enforce the financial agreements\cite{lamport1982byzantine}\cite{christidis2016blockchains}. The technology that underlies them could spread into other transactions: trading stock,  IP, buying and selling real estate, purchasing music and much more. Both consortium blockchain and private blockchain have been developed and implemented during the last few years, the value, however, only exists among the closed set of entities or internal entity. While fully public blockchain operates by having a large number of participants,  resulting in trust by numbers. According to coinmarketcap.com stats,  the total cryptocurrency market cap value has reached to 113 billions USD,  including 32 billions USD from Ethereum\cite{wood2014ethereum} on June 12, 2017.
 
-Blockchain has massive influence on the many areas,  particular in finance. It is strongly believed that tokenization\cite{liu2016medical}\cite{christidis2016blockchains}\cite{swan2015blockchain} is a new solution. Asset tokenization can reduce the cost,  globalize the asset and increase the liquidation. We will see more dApps that require the use of these different tokens. As a result,  an open standard for exchanging tokens is critical to supporting this open economy.
+Blockchain has massive influence on the many areas,  particular in finance industry. It is strongly believed that tokenization\cite{liu2016medical}\cite{christidis2016blockchains}\cite{swan2015blockchain} is a new solution. Asset tokenization can reduce the cost,  globalize the asset and increase the liquidation. We will see more dApps that require the use of these different tokens. As a result,  an open standard for exchanging tokens is critical to support this open economy.
 
-A traditional exchange platform is based on peer-to-peer IOUs and blockchain technology. Firstly,  users need to deposit their money or tokens into exchange's  bank account or wallet,  then their account will be credited some IOU. Thus,  users actually are trading their IOU in the exchange. Users have to file a ticket when they want to withdraw or sell the tokens.
+A regular exchange platform is based on peer-to-peer IOUs and blockchain technology. Firstly,  users need to deposit their money or tokens into exchange's  bank account or wallet,  then their account will be credited some IOU. Thus,  users actually are trading their IOU in the exchange. Users have to file a ticket when they want to withdraw or sell the tokens.
 
 In February 2014,  the largest Bitcoin exchange "Mt. Gox" suspended trading,  closed its website and exchange service,  and filed for bankruptcy protection from creditors\cite{mcmillan2014inside}. Mt. Gox announced that approximately 850,000 Bitcoins belonging to customers and the company were missing and likely stolen,  an amount valued at more than \$450 million at the time. Research showed less than 1 percent (7000 btc) of missing funds lost to attacks. In 2016,  Bitfinex was the subject of the Bitfinex Hack, in which \$72 million in Bitcoin was stolen from the company's customer's accounts. Therefore,  lack of regulation is hurting Bitcoin in many regions. It also approves that the centralized exchange platform has those unavoidable risk.
 
@@ -131,7 +131,7 @@ We describe a protocol that facilitates decentralized exchange mechanism of ERC2
 
 There are some decentralized exchanges on blockchain technology like Ripple,  BitShares,  Openledger in open sourced community.
 
-Ripple\cite{schwartz2014ripple} is a real-time gross settlement system,  currency exchange and remittance network operated by Ripple (the cmpany). Also called the Ripple Transaction Protocol (RTXP) or Ripple protocol,  it is built upon a distributed open source Internet protocol,  consensus ledger. Ripple's solution is built around an open,  neutral protocol (Interledger Protocol or ILP\cite{thomas2015protocol}) to power payments across different ledgers and networks globally. It offers a cryptographically secure end-to-end payment flow with transaction immutability and information redundancy. Architected to fit within a bank's existing infrastructure,  Ripple is designed to comply with risk,  privacy and compliance requirements.
+Ripple\cite{schwartz2014ripple} is a real-time gross settlement system,  currency exchange and remittance network operated by Ripple (the company). Also called the Ripple Transaction Protocol (RTXP) or Ripple protocol,  it is built upon a distributed open source Internet protocol,  consensus ledger. Ripple's solution is built around an open,  neutral protocol (Interledger Protocol or ILP\cite{thomas2015protocol}) to power payments across different ledgers and networks globally. It offers a cryptographically secure end-to-end payment flow with transaction immutability and information redundancy. Architected to fit within a bank's existing infrastructure,  Ripple is designed to comply with risk,  privacy and compliance requirements.
 
 BitShares\cite{schuhbitshares}\cite{schuh2015bitshares} is an industrial-grade financial blockchain smart contracts platform. The BitShares decentralized exchange - also known as "The DEX" is a next-generation cryptocurrency trading platform. The DEX is inherently decentralized,  enabling you to trade the BitShares core token (BTS) and a range of trust-less price-stable,  market-pegged assets such as bitUSD,  bitCNY,  bitBTC,  bitGold and more. These assets can all be traded with zero counter-party risk,  putting you in total control of your funds. However,  Bitshares project has many limitations on itself.
 
@@ -157,21 +157,12 @@ Due to above reasons and limitation,  centralized exchange is now still playing 
 Figure 1 presents the general sequence of steps used for three parties transaction under MTTP:
 
 \begin{enumerate}
- \item User X,  Y and Z authorize MTTP smart contract to manipulate their account for token trading and exchanging. From figure,  Contract may transfer out 1000 token A from User X's account,  and transfer out 9 token B from User Y's account,  100 token C from User Z's account;
+ \item User X,  Y and Z authorize MTTP smart contract to manipulate their accounts for token trading and exchanging. From above figure,  Contract may transfer out 1000 token A from User X's account,  and transfer out 9 token B from User Y's account,  100 token C from User Z's account;
  \item User X,  Y and Z place their own orders with signature using their private keys. Thus,  all the orders go into a medium and ready to exchange - Order 1 is selling no more than 1000 token A and purchase no less than 10 token B; if the order is partially matched,  then exchange rate between A to B should be no less than 1000/10=100.00 (Selling tokens divided by purchasing tokens). We will illustrate other involved parameters in chapter 3.7;
- \item User X,  Y and Z continue to send their order one of multiple exchanges;
- \item After the exchange received three separate orders,  they will replace them into corresponding order-book, while update new block and calculate each order's status in order to match the set order - since we call it ring exchange or matching exchange. Once all the orders are confirmed and successfully mix-matched;
+ \item User X,  Y and Z continue to send their order to one of the other multiple exchanges;
+ \item After the exchange received three separated orders,  they will replace them into corresponding order-book, while update new block and calculate each order's status in order to match the set order - since we call it ring exchange or matching exchange. Once all the orders are confirmed and successfully mix-matched;
  \item Exchange will send out a signature to MTTP smart contract address;
- \item MTTP smart contract to verify quadruple signatures in order to verify three orders' closing. If closing is failed,  then terminate the contract (exchange still cost certain gas); otherwise,  smart contract needs to calculate the proceed and cost for each users, then complete the token exchange --- as shown in the figure below. During the each steps, MTTP smart contract will use MTTP Registration Contract to calculate all the fees and discount before closing,  system will also need to use MTTP Stats Contract to update database.
- 
- \begin{center}
-\begin{figurehere}
-\includegraphics[height=5cm]{images/en-mttp-example.png}
-\caption{MTTP: Clearance and Settlement}
-\label{fig:MTTPprotocol}
-\end{figurehere}
-\end{center}
-
+ \item MTTP smart contract will verify quadruple signatures in order to verify three orders' closing. If closing is failed,  then terminate the contract (exchange still cost certain gas); otherwise,  smart contract needs to calculate the proceed and cost for each users, then complete the token exchange. During each steps, MTTP smart contract will use MTTP Registration Contract to calculate all the fees and discount before closing,  system will also need to use MTTP Stats Contract to update database.
  \item Exchange starts receiving new block and new data from the chain in order to upgrade the order-book then to mix-match new and existing orders.
 \end{enumerate}
 
@@ -194,7 +185,7 @@ We underlined the symbols to emphasis on their original numbers. For example $\o
 
 \subsection{Rate Immutability\label{sec: consistrate}}
 
-MTTP demands the max exchange rate in an order stay immutable until the order is closed: 
+MTTP demands the max-return exchange rate in an order stay immutable until the order is closed: 
 $s_{i\rightarrow j} / b_{i\rightarrow j} = \overline{s}_{i\rightarrow j}/ \overline{b}_{i\rightarrow j}$. This guarantees after an order is partially filled, the remaining order still satisfies the user's original intention.
 
 \subsection{Order Reducibility\label{sec: reducibility}}
@@ -248,7 +239,7 @@ where $n$ is the length of the ring, and $i\oplus 1 \equiv i+1 \mod n$.
 Once the prices match the orders under circumstance,  we could start to complete trading in this circle.
 
 \subsubsection{Price\label{sec: matchprice}}
-We will introduce an example for a better understanding of price mechanism. Assume three kinds of token are $C_{0}$, $C_{1}$ and $C_{2}$, three separate orders: $O_{0\rightarrow 1}$, $O_{1 \rightarrow 2}$ and $O_{2 \rightarrow 0}$. Easy to approve: if and only if $r_{0 \rightarrow 1} \cdot r_{1 \rightarrow 2}\cdot r_{2 \rightarrow 0} = 1$,  all three orders could be filled using their respective exchange rate; If $r_{0 \rightarrow 1} \cdot r_{1 \rightarrow 2}\cdot r_{2 \rightarrow 0} > 1$, all these orders can be filled using a rate lower than their implicit max exchange rate. We named the first situation as \texttt{original-price matching}, the second as \texttt{discount-price matching}.
+We will introduce an example for a better understanding of price mechanism. Assume three kinds of token are $C_{0}$, $C_{1}$ and $C_{2}$, three separated orders: $O_{0\rightarrow 1}$, $O_{1 \rightarrow 2}$ and $O_{2 \rightarrow 0}$. Easy to approve: if and only if $r_{0 \rightarrow 1} \cdot r_{1 \rightarrow 2}\cdot r_{2 \rightarrow 0} = 1$,  all three orders could be filled using their respective exchange rate; If $r_{0 \rightarrow 1} \cdot r_{1 \rightarrow 2}\cdot r_{2 \rightarrow 0} > 1$, all these orders can be filled using a rate lower than their implicit max exchange rate. We named the first situation as \texttt{original-price matching}, the second as \texttt{discount-price matching}.
 
 According to MTTP protocol, each order in the ring would share the same rate (price) discount. For instance, if discount rate is $\gamma$, then price for each order will be:
 $r_{0\rightarrow 1} \cdot (1-\gamma)$, $r_{1\rightarrow 2} \cdot (1-\gamma)$, $r_{2 \rightarrow 0} \cdot (1-\gamma)$, and satisfied: 
@@ -294,7 +285,7 @@ f^i = b^i \cdot m^i / \overline{b^i}
 \end{equation*}
 
 
-In order to encourage exchange to offer best rate for the users,  MTTP would distribute profit from \texttt{cost saving} to the exchange. as an order $O^i$,  if price for purchasing is $b^i$( $b^i \le \overline{b^i}$ ),  then we define the from saving cost: 
+In order to encourage exchange to offer best rate for the users,  MTTP would distribute profit from \texttt{cost saving} to the each exchange. as an order $O^i$,  if price for purchasing is $b^i$( $b^i \le \overline{b^i}$ ),  then we define the saving cost form as: 
 
 \begin{equation*}
 \Delta^i = b^i \cdot r^i \cdot \gamma
@@ -323,7 +314,7 @@ F =(1-\lambda)\cdot (1-\eta) \cdot \sum^{n-1}_{i=0} (b^i \cdot r^i \cdot \gamma 
 
 
 \subsubsection{Fee Discount}
-MTTP requires exchange platform offering discount for each transaction,  discount fee depends on the number of deposit token $MTC$. The higher the rank,  the lower fee will charge; For example Rank $n$'s cost will be:
+MTTP requires exchange platform offering discount for each transaction,  discount fee depends on the number of deposited token $MTC$. The higher the rank,  the lower fee will be charged; For example Rank $n$'s cost will be:
 
 $$\lambda_{n} = 0.05\cdot(\ln (n+e-1) - 1)\text{.}$$
 Details below:
@@ -369,27 +360,27 @@ Figure \ref{fig:discount} shows, $\lambda_{2} - \lambda_{1} \gg \lambda_{100} - 
 \end{center}
 
 
-\subsection{Fraud and Attach Protection}
+\subsection{Fraud and Attack Protection}
 
 \subsubsection{Exchange Covered Interest Arbitrage}
 
 MTTP is trying create a fair ecosystem and find a balance between customers and exchanges. Firstly,  we will explain how exchange could archive a zero risk covered interest arbitrage.
 
 Assume there are two orders $O_{a\rightarrow b}$, $O_{b\rightarrow a}$, form a loop, $r_{a\rightarrow b} \cdot r_{b\rightarrow a} > 1$. Exchange can input three new orders between those two. $O_{b\rightarrow c}$, $O_{c\rightarrow d}$, $O_{d\rightarrow b}$, to create a five orders-loop,  $r_{a\rightarrow b} \cdot r_{b\rightarrow c} \cdot r_{c\rightarrow d}\cdot r_{d\rightarrow b}\cdot r_{b\rightarrow a} = 1$. Exchange could make all the possible cost down to zero, once the transaction completed, it's like zero risk covered interest arbitrage
-and $O_{b\rightarrow c}\rightarrow O_{c\rightarrow d}\rightarrow O_{d\rightarrow b}$. In order to stop those matter, MTTP requires: {\bfseries verified loop must not be able to create more sub-loop to trade}.
+and $O_{b\rightarrow c}\rightarrow O_{c\rightarrow d}\rightarrow O_{d\rightarrow b}$. In order to stop those matter, MTTP requires: {\bfseries a verified loop cannot create more sub-loop to continue trading}.
 
 \subsubsection{Denial-of-Service}
 
 MTTP allows exchanges to selectively handle orders. Exchange can set up their own criteria and may choose to hide or reveal these criteria. Therefor MTTP does not see denial of service as a form of unethical behaviors.
 
-\subsubsection{Massive Tiny Order Attach}
-User can send out a large amount of tiny orders to attach exchanges. Exchanges, however, will reject most of these tiny orders because they do not yield satisfying profit when matched. As denial-of-service is not deemed as a form of attach, massive tiny order attach is not feasible.
+\subsubsection{Massive Tiny Order Attack}
+User can send out a large amount of tiny orders to attach exchanges. Exchanges, however, will reject most of these tiny orders because they do not yield satisfying profit when matched. As denial-of-service is not deemed as a form of attack, massive tiny order attack is not feasible.
 
 \subsubsection{Insufficient Balance}
 
-Malicious users may sign and spread out orders whose value inside the order is not zero but whose address actually has zero balance. This again is a not a good way of attach exchanges. Because exchanges will monitor and notice that some order's actual balance is zero and update these order's states accordingly then discard them.  
+Malicious users may sign and spread out orders whose value inside the order is not zero but whose address actually has zero balance. This again is a not a good way of attack exchanges. Because exchanges will monitor and notice that some order's actual balance is zero and update these order's states accordingly then discard them.  
 
-Exchanges do have to spend time to update order state, but can also choose to minimize these effort by, for example, blacklist some addresses and drop all related orders.
+Exchanges do have to spend time to update order status, but can also choose to minimize these effort by, for example, blacklist some addresses and drop all related orders.
 
 \subsubsection{Ring Filch}
 
@@ -404,11 +395,11 @@ where $H()$ is a one-way hash function, $r$ is Match-Ring record. Hash Hash func
 
 \subsection{Market Depth\label{sec: marketdepth}}
 
-Exchange no need to offer market depth data. Under this ecosystem,  both single organization and corporation can possibly pool all the un-closed orders into one market depth data. We can find out trading data between any two ERC20 tokens according to the agreement in chapter 3.3.
+Exchange no need to offer market depth data. Under this ecosystem,  both single organization and corporation can possibly pool all the unclosed orders into one market depth data. We can find out trading data between any two ERC20 tokens according to the agreement in chapter 3.3.
 
 \subsection{Data Structure\label{sec: dataformat}}
 
-All the orders can be represented using one data structure due to adopting OTC module. This  data structure contains both digital signature and all parameters. Before the signature,  connect the parameter data from the orders into a set data,  calculate the order's hash by using Keccak SHA3 method,  then sign using this account's private keys with ECDSA.
+All the orders can be represented by using one data structure due to adopting OTC module. This  data structure contains both digital signature and all parameters. Before the signature,  connect the parameter data from the orders into a set of data,  calculate the order's hash by using Keccak SHA3 method,  then sign by using this account's private keys with ECDSA.
 
 
 \begin{verbatim}
@@ -426,11 +417,11 @@ message Order {
 }
 \end{verbatim}
 
-Though there's no indicated price from the order, we are still able to find out through the formula: $outAmount / inAmount$ to get exchange rate $r$. All the actual exchange rate must be less than $r$. A user-friendly exchange should allow user to input $outAmount$, $inAmount$,  selling and asking price and use any two of those numbers in order to calculate the missing $outAmount$ 或 $outAmount$ figure.
+Though there's no indicated price from the order, we are still able to find out through the formula: $outAmount / inAmount$ to get exchange rate $r$. All the actual exchange rate must be less than $r$. A user-friendly exchange should allow user to input $outAmount$, $inAmount$,  selling and asking price and use any two of those numbers in order to calculate the missing $outAmount$ or $outAmount$ figure.
 
 Actual orders can be defined in two different ways: Definition A - transaction can be completed once number of token sold reaches $outAmount$ ; Definition B - transaction can be completed once number of token purchased reaches $inAmount$; Therefore,  we can setup a quote for exchange and mix-matching contract to help to define the trade. At our initial version,  we would support Definition A only.
 
-Exchange could create a Match-Ring using this data structure:
+Exchange could create a Match-Ring by using this data structure:
 \begin{verbatim}
 message MatchRing {
   Order[] orders;
@@ -475,7 +466,7 @@ We will issue a token base on ERC20 Ethereum Token Standard called $MTC$ (displa
 $MTC$ will be use in the following areas:
 
 \begin{itemize}
- \item \textbf{Gas Fees} --- $MTC$ can be used for transaction fee for exchange. It will be easy and productive for the exchange to calculate all the cost in $MTC$. Same as request sender and receiver. We have mention this from previous chapter\ref{sec: fee}.
+ \item \textbf{Gas Fees} --- $MTC$ can be paid as transaction fee for exchange. It will be simple and productive for the exchange to calculate all the cost in $MTC$. Same as request sender and receiver. We have mention this from previous chapter\ref{sec: fee}.
  \item \textbf{Deposit for Exchange Registration} ---Decentralized exchange mechanism has no limits on location or time. Thus,  those high turnover exchange would receive more orders and get more users. Hence,  we have setup a policy for those exchange that allow them to use $MTC$ to deposit into smart contract in order to increase exchange's credibility. Moreover,  it can also protect user from certain circumstance.
 \end{itemize}
 
@@ -489,7 +480,7 @@ Decentralized mechanism include token registration, exchange registration, stat 
    \item \textbf{token registration} MTTP would adjust token,  low trading volume will be eliminated and new popular token will be replaced. however all the adjustment have to be recorded on smart contract.
   \item \textbf{exchange registration} Only those exchanges accept MTTP would allow to start trading.
    \item \textbf{stat hash} Data will increase to certain amount after a long period operating. The more data exchanges have,  the more accurate system computation ability has.
-  \item \textbf{deposit scale} Deposit for each exchange should be scalable. if the amount is huge,  the liquidation gets worse; verse vice.
+  \item \textbf{deposit scale} Deposit for each exchange should be measurable. if the amount is huge,  the liquidation gets worse; verse vice.
    \item \textbf{maximum length} Technically, more orders can create more profit,  however the risk of failure also increase. As well as the trading cost.
    \item \textbf{discount hash} Discount hash will be adjust with the market. Below figure shows, blue line represents normal market, yellow line represents supply market, red line represents demand market.
 \begin{center}
@@ -560,15 +551,15 @@ Supervision & Strong & Weak\tablefootnote{MTTP exchanges do not require deposit,
 
 \section{Summary\label{sec: summary}}
 
-We describe a protocol that facilitates decentralized exchange of ERC20 tokens on the Ethereum blockchain. MTTP allows multi token transaction exchange,  as well as it accepts exchange liquidation on blockchain; This whitepaper has explained how the mechanism work under different circumstance. In additional,  the benefit that MTTP has brought to current exchange mechanism.
+We describe a protocol that facilitates decentralized exchange of ERC20 tokens on the Ethereum blockchain. MTTP allows multi-token transaction exchange,  as well as it accepts exchange liquidation on blockchain; This whitepaper has explained how the mechanism work under different circumstance. In additional,  the benefit that MTTP has brought to current exchange mechanism.
 MTTP protocol fits any ERC20 and smart contract blockchain platform. After many discussion,  our team will develop MTTP on the Ethereum blockchain.
-We also plan to create a non profit foundation for MTTP through crowdsale and issue ICO.
+We also plan to create a non profit foundation for MTTP through crowdsale and issuing ICO.
 
 \section{Acknowledgements\label{sec: acknowledgement}}
 
-We would like to express our gratitude to our mentors,  advisors and to the many people in the community that have been so welcoming and generous with their knowledge. In particular,  we would like to thank Xing,  Jiang; Xiaochuan Wu; Zhen, Wang and Jun, Ma for reviewing and providing feedback on this work. We are also welcoming more feedbacks from community.
+We would like to express our gratitude to our mentors,  advisers and to the many people in the community that have been so welcoming and generous with their knowledge. In particular,  we would like to thank Xing,  Jiang; Xiaochuan Wu; Zhen, Wang and Jun, Ma for reviewing and providing feedback on this work. We are also welcoming more feedback from community.
 
-\newpage
+\newpage  
 \bibliography{whitepaper}
 \bibliographystyle{unsrt}
 
@@ -585,7 +576,7 @@ We would like to express our gratitude to our mentors,  advisors and to the many
 %\begin{table}[hbt]
 % \centering
 % \begin{tabular}{l|c}
-%   Purpose    & Percetage\\
+%   Purpose    & Percentage\\
 %  \hline
 % Tech Development  & 50\% \\
 % Community Building & 20\% \\
@@ -605,8 +596,8 @@ We would like to express our gratitude to our mentors,  advisors and to the many
 %  \hline
 % 2017/06 & Whitepaper release, Project start-off \\
 % 2017/07 & Module Development Completion \\
-% 2017/08 & MTTP open source commitee(Foundation)set and Pre ICO closed \\
-% 2017/08 & ICO Schedule \\
+% 2017/08 & MTTP open source committee(Foundation)set and Pre ICO closed \\
+% 2017/08 & ICO schedule \\
 % 2017/09 & ICO start \\
 % 2017/10 & ICO close and release result \\
 % 2017/11 & $MTC$Token IOU launch at exchange \\
