@@ -162,7 +162,16 @@ Figure 1 presents the general sequence of steps used for three parties transacti
  \item User X,  Y and Z continue to send their order one of multiple exchanges;
  \item After the exchange received three separate orders,  they will replace them into corresponding order-book, while update new block and calculate each order's status in order to match the set order - since we call it ring exchange or matching exchange. Once all the orders are confirmed and successfully mix-matched;
  \item Exchange will send out a signature to MTTP smart contract address;
- \item MTTP smart contract to verify quadruple signatures in order to verify three orders' closing. If closing is failed,  then terminate the contract (exchange still cost certain gas); otherwise,  smart contract needs to calculate the proceed and cost for each users, then complete the token exchange. During the each steps, MTTP smart contract will use MTTP Registration Contract to calculate all the fees and discount before closing,  system will also need to use MTTP Stats Contract to update database.
+ \item MTTP smart contract to verify quadruple signatures in order to verify three orders' closing. If closing is failed,  then terminate the contract (exchange still cost certain gas); otherwise,  smart contract needs to calculate the proceed and cost for each users, then complete the token exchange --- as shown in the figure below. During the each steps, MTTP smart contract will use MTTP Registration Contract to calculate all the fees and discount before closing,  system will also need to use MTTP Stats Contract to update database.
+ 
+ \begin{center}
+\begin{figurehere}
+\includegraphics[height=5cm]{images/en-mttp-example.png}
+\caption{MTTP: Clearance and Settlement}
+\label{fig:MTTPprotocol}
+\end{figurehere}
+\end{center}
+
  \item Exchange starts receiving new block and new data from the chain in order to upgrade the order-book then to mix-match new and existing orders.
 \end{enumerate}
 
