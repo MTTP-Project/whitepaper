@@ -62,7 +62,7 @@
 %\usepackage[pages=some, placement=top]{background}
 \usepackage{eso-pic}
 
-\title{Multilateral Token Trade Protocol (MTTP)\\v0.7}
+\title{Multilateral Token Trade Protocol (MTTP)\\v0.8}
 \author{
   daniel@mttp.io\\
   jay@mttp.io\\
@@ -518,7 +518,7 @@ Another feature for MTTP is that it has change the "Trading Pair"concept. Transa
 \begin{tabular}{p{5cm}|p{2.5cm}|p{2.5cm}} %设置了每一列的宽度，强制转换。
 &Centralized Exchange & MTTP Exchange \\ %用&来分隔单元格的内容 \\表示进入下一行
     \hline
-Deposit for the order& Yes & No \tablefootnote{Exchanges execute under MTTP ecosystem do not require any deposit - Tokens are kept in user's wallet, no transaction will be made before the full contract close. As a result, no account stolen or asset lost risk.\\
+Deposit for the order& Yes & No \tablefootnote{Exchanges execute under MTTP ecosystem do not require any deposit - Tokens are kept in user's wallet, no transaction will be made before the full contract close. As a result, no account stolen or asset lost risk.}\\
 \hline
 Frozen Account& Yes & No \tablefootnote{MTTP exchanges do not require freeze trading fund --- If user partially or fully modify the fund, the contract will be withdraw automatically.}\\
 \hline
@@ -527,11 +527,11 @@ Deposit/Withdraw& Yes & No \tablefootnote{Sender's order can be distributed to m
 
 Internal Trading Risk& Yes & No\tablefootnote{All matching trades are based on smart contract on blockchain, data are immutable and transparent.}\\
 \hline
-Customer loss from exchange closing& Yes & No\tablefootnote{ MTTP exchanges are not responsible for tokenization, thus MTTP users will not be affected if exchanges wind up. For example, if blockchain account will not affected if the mining terminaed. In conclusion, Exchanges are responsible for matching trades. Smart contract will complete clearing and settlement. Therefore, assets are always kept in user’s blockchain account.}\\
+Customer loss from exchange closing& Yes & No\tablefootnote{ MTTP exchanges are not responsible for tokenization, thus MTTP users will not be affected if exchanges wind up. For example, if blockchain account will not affected if the mining terminated. In conclusion, Exchanges are responsible for matching trades. Smart contract will complete clearing and settlement. Therefore, assets are always kept in user’s blockchain account.}\\
 \hline
-Transaction is the main income& Yes & No\table footnote{Transaction fee is not a mainstream income for MTTP exchanges, mainstream comes from “profit of transaction cost saving”, because it can effectively encourage trade matching.}\\
+Transaction is the main income& Yes & No\tablefootnote{Transaction fee is not a mainstream income for MTTP exchanges, mainstream comes from “profit of transaction cost saving”, because it can effectively encourage trade matching.}\\
 \hline
-Accept Legal Currency& Yes & Yes\tablefootnote{MTTP exchanges fully support asset tokenization, hence, it requres legimite currency being tokenised on ERC20 standand.}\\
+Accept Legal Currency& Yes & Yes\tablefootnote{MTTP exchanges fully support asset tokenization, hence, it requires legitmate currency being tokenized on ERC20 standard.}\\
 \hline
 Can be traded among multiple exchanges& No & Yes \tablefootnote{MTTP allows multiple MTTP exchanges partially or fully trade off one order at same time.}\\
 \hline
@@ -539,7 +539,7 @@ Fairness for Maker and Taker& No & Yes \tablefootnote{Transaction price is close
 \hline
 Mix and Match Trading& No & Yes\tablefootnote{ MTTP exchanges’ multiple supporting feature can help sender to find the most profitable order.}\\
 \hline
-Supervision & Strong & Weak\tablefootnote{MTTP exchanges do not require deposit, Clearing and settlement are made through open source smart contract. Hence, regulation is not neccesarily if there's no asset tokenization occured.}\\
+Supervision & Strong & Weak\tablefootnote{MTTP exchanges do not require deposit, Clearing and settlement are made through open source smart contract. Hence, regulation is not necessarily if there's no asset tokenization occurred.}\\
 
   \end{tabular}
 
