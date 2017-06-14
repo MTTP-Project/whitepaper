@@ -439,8 +439,10 @@ message MatchRing {
   Order[] orders;
   address feeRecipient;
   unit256 additionalDiscount;
-  bytes signature;
   unit256 nonce;
+  unit8 v;
+  bytes32 r;
+  bytes32 s;
 }
 \end{verbatim}
 
