@@ -52,7 +52,7 @@
 %\usepackage[pages=some,placement=top]{background}
 \usepackage{eso-pic}
 
-\title{Multilateral Token Trade Protocol (MTTP)\\多边代币交易协议\\v0.7}
+\title{Multilateral Token Trade Protocol (MTTP)\\多边代币交易协议\\v0.8}
 \author{
     daniel@mttp.io\\
     alex@mttp.io\\
@@ -153,7 +153,7 @@ Bancor\cite{bancor}协议引入了一种基于数学模型的方案去试图解�
 
 \begin{center}
 \begin{figurehere}
-\includegraphics[height=5cm]{images/mttp-example.png}
+\includegraphics[height=5cm]{images/zh-mttp-example.png}
 \caption{MTTP协议：交易环路结算}
 \label{fig:MTTPprotocol}
 \end{figurehere}
@@ -434,7 +434,9 @@ message Order {
   unit256 fee;        // 交易总费用（MTC），部分成交的费用按该次
                       // 撮合实际卖出代币额与outAmount比例计算
   uint8 savingShare;  // fee不为0时支付给交易所的分润比例，否则视为100%
-  bytes signature;    // 上面数据的ECDSA签名，也可以用作订单ID
+  unit8 v;
+  bytes32 r;
+  bytes32 s;
 }
 \end{verbatim}
 
@@ -450,7 +452,7 @@ message MatchRing {
     address feeRecipient;       // 费用收取地址
     unit256 additionalDiscount; // 在费用基础上进行的再折扣价 - eta
     bytes signature;            // 上面数据的ECDSA签名
-    unit256 nounce;              // 一个随机数
+    unit256 nonce;              // 一个随机数
 }
 \end{verbatim}
 
@@ -597,7 +599,7 @@ MTTP协议适用于任何支持ERC20和智能合约的区块链平台。然而�
 
 \section{感谢\label{sec:acknowledgement}}
 
-我们由衷地感谢下列各位专家对白皮书中内容的审阅和指正，包括：网信金融CEO盛佳，谷歌前工程师Zhen Wang、马俊、应甫臣，蚂蚁金服架构师钟馥柏对整体架构提出的建议和意见。我们也希望并期待社区中和开源项目的参与者能够对白皮书提出进一步的批评和指正。
+我们由衷地感谢下列各位专家对白皮书中内容的审阅和指正，包括：中国分布式总账基础协议联盟（ChinaLedger）技术委员会主任，中国金融标准化技术委员会证券分委员会副主任委员，中国中文信息学会常务理事白硕；复旦大学教授，博士生导师阚海滨；网信金融CEO盛佳；小蚁创始人，Onchain分布科技CEO达鸿飞；维优元界创始人初夏虎；能源区块链实验室创始合伙人，信达证券首席区块链专家，首席能源互联网研究员曹寅；区块链内容创造和分享平台YOYOW项目​联合创始人；比特股理事巨蟹；微软必应研发负责人，微软广告系统技术负责人，微软技术合伙人于伟；德华资本首席投资官​曹晶；花虾金融CEO兼华夏信财副总裁段念；北京汇垠天然投资基金管理有限公司董事长郭一鹏；知乎合伙人李大海；红点创投（Redpoint Ventures）副总裁张鸣晨；京东副总裁京东X事业部总裁肖军；银联智慧创始人兼总裁龙凯；百度副总裁，百度美国研发中心总经理Alex Cheng；苏宁云商集团IT总部执行副总裁向江旭；美团点评科学家夏华夏；Airbnb人工智能负责人钱江。感谢谷歌前工程师Zhen Wang、马俊、应甫臣对整体架构提出的建议和意见。我们也希望并期待社区中和开源项目的参与者能够对白皮书提出进一步的批评和指正。
 
 \newpage
 \bibliography{whitepaper}
